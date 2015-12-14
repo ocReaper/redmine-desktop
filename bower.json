@@ -1,6 +1,6 @@
 {
   "name": "redmineDesktop",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Native desktop Redmine client written in Angular.js with Electron",
   "authors": [
     "Ákos Resch <ocreaper@gmail.com>"
