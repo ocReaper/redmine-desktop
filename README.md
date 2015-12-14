@@ -1,3 +1,5 @@
+# [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 # redmine-desktop
 Native desktop Redmine client written in Angular.js with Electron
 
@@ -19,3 +21,10 @@ Native desktop Redmine client written in Angular.js with Electron
 - Run `gulp webdriverUpdate` to download Selenium server standalone and Chrome driver for e2e testing
 - Run `gulp e2eTest` to run e2e tests via Protractor
 - **A localhost must be running** - `gulp dev`
+
+## License
+The MIT License (MIT)
+
+Copyright (c) 2015 Ákos Resch
+
+See [LICENSE](https://github.com/ocReaper/redmine-desktop/blob/master/LICENSE.md).
