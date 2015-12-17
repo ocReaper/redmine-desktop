@@ -70,7 +70,7 @@ module.exports = function (gulp, $, config) {
   gulp.task('scripts', ['clean', 'analyze', 'markup'], function () {
     var es6Filter = $.filter('**/*.es6', {restore: true})
       , htmlFilter = $.filter('**/*.html', {restore: true})
-      , jsFilter = $.filter('**/*.js', {restore: true});
+      , jsFilter = $.filter(['**/*.js', '!background.js'], {restore: true});
 
     return gulp.src([
       config.appScriptFiles,
@@ -119,6 +119,14 @@ module.exports = function (gulp, $, config) {
           ignorePath: config.buildDir
         })
       )
+      .pipe(gulp.dest(config.buildDir));
+  });
+
+  // copy electron starter background.js
+  gulp.task('electronStarterCopy', ['inject'], function () {
+    return gulp.src([
+        config.appElectronFile
+      ])
       .pipe(gulp.dest(config.buildDir));
   });
 
@@ -265,5 +273,5 @@ module.exports = function (gulp, $, config) {
       });
   });
 
-  gulp.task('build', ['deleteTemplates', 'bowerAssets', 'images', 'favicon', 'fonts']);
+  gulp.task('build', ['deleteTemplates', 'bowerAssets', 'images', 'favicon', 'fonts', 'electronStarterCopy']);
 };
