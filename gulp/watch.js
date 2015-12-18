@@ -12,9 +12,25 @@ module.exports = function (gulp, $, config) {
     });
   });
 
-  gulp.task('watch', function () {
+  gulp.task('watch', watcherTask);
+
+  function watcherTask() {
     $.browserSync.reload();
-    gulp.watch([config.unitTestFiles], ['unitTest']);
-    gulp.watch([config.appFiles, '!' + config.unitTestFiles], ['build', $.browserSync.reload]);
-  });
+
+    gulp
+      .watch([config.unitTestFiles], ['unitTest'])
+      .on('close', function (code) {
+        // Gulp watch exits when error occured during build.
+        // Just respawn it then.
+        watcherTask();
+      });
+
+    gulp
+      .watch([config.appFiles, '!' + config.unitTestFiles], ['build', $.browserSync.reload])
+      .on('close', function (code) {
+        // Gulp watch exits when error occured during build.
+        // Just respawn it then.
+        watcherTask();
+      });
+  }
 };

@@ -33,6 +33,7 @@ config.appImageFiles = path.join(config.appDir, 'images/**/*');
 config.appMarkupFiles = path.join(config.appDir, '**/*.html');
 config.appScriptFiles = path.join(config.appDir, '**/*.es6');
 config.appStyleFiles = path.join(config.appDir, '**/*.less');
+config.appElectronFile = path.join(config.appDir, 'background.js');
 
 config.buildDirectiveTemplateFiles = path.join(config.buildDir, '**/*directive.tpl.html');
 config.buildJsFiles = path.join(config.buildJs, '**/*.js');

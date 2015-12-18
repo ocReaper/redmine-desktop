@@ -1,6 +1,8 @@
 {
   "name": "redmineDesktop",
   "version": "0.1.0",
+  "productName": "redmineDesktop",
+  "identifier": "com.ocreaper.redmine-desktop",
   "description": "Native desktop Redmine client written in Angular.js with Electron",
   "author": {
     "name": "Ákos Resch",
@@ -20,8 +22,13 @@
     "test": "gulp test",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w"
   },
+  "main": "background.js",
   "dependencies": {},
   "devDependencies": {
+    "asar": "^0.7.2",
+    "fs-jetpack": "^0.7.0",
+    "electron-prebuilt": "^0.35.1",
+    "q": "^1.4.1",
     "browser-sync": "^2.2.3",
     "chai": "^2.1.1",
     "chai-as-promised": "^4.1.1",
@@ -87,9 +94,14 @@
     "wiredep": "^2.2.0",
     "yargs": "^3.4.5"
   },
+  "optionalDependencies": {
+    "appdmg": "^0.3.2",
+    "rcedit": "^0.3.0"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
+    },
+    "target": "development"
   }
 }
