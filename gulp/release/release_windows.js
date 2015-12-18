@@ -23,6 +23,10 @@ var init = function () {
     return Q();
 };
 
+var copyPackageJson = function () {
+    return projectDir.copyAsync('package.json', projectDir.path('build/app') + '/package.json', { overwrite: true });
+};
+
 var copyRuntime = function () {
     return projectDir.copyAsync('node_modules/electron-prebuilt/dist', readyAppDir.path(), { overwrite: true });
 };
@@ -117,6 +121,7 @@ var cleanClutter = function () {
 
 module.exports = function () {
     return init()
+    .then(copyPackageJson)
     .then(copyRuntime)
     .then(cleanupRuntime)
     .then(packageBuiltApp)
