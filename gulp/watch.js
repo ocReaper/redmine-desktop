@@ -1,24 +1,19 @@
 'use strict';
 
+var runElectron = require("gulp-run-electron");
+
 module.exports = function (gulp, $, config) {
-  gulp.task('browserSync', function () {
-    $.browserSync({
-      host: config.host,
-      open: 'external',
-      port: config.port,
-      server: {
-        baseDir: config.buildDir
-      }
-    });
+  gulp.task('electron', function () {
+    gulp
+      .src(config.buildDir)
+      .pipe(runElectron());
   });
 
   gulp.task('watch', watcherTask);
 
   function watcherTask() {
-    $.browserSync.reload();
-
     gulp
-      .watch([config.unitTestFiles], ['unitTest'])
+      .watch([config.unitTestFiles], ['unitTest', runElectron.rerun])
       .on('close', function (code) {
         // Gulp watch exits when error occured during build.
         // Just respawn it then.
@@ -26,7 +21,7 @@ module.exports = function (gulp, $, config) {
       });
 
     gulp
-      .watch([config.appFiles, '!' + config.unitTestFiles], ['build', $.browserSync.reload])
+      .watch([config.appFiles, '!' + config.unitTestFiles], ['build', runElectron.rerun])
       .on('close', function (code) {
         // Gulp watch exits when error occured during build.
         // Just respawn it then.

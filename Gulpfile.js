@@ -37,6 +37,7 @@ config.appElectronFile = path.join(config.appDir, 'background.js');
 
 config.buildDirectiveTemplateFiles = path.join(config.buildDir, '**/*directive.tpl.html');
 config.buildJsFiles = path.join(config.buildJs, '**/*.js');
+config.buildElectronFile = path.join(config.buildDir, 'background.js');
 
 config.buildTestDirectiveTemplateFiles = path.join(config.buildTestDir, '**/*directive.tpl.html');
 config.buildE2eTestsDir = path.join(config.buildTestDir, 'e2e');
@@ -53,7 +54,7 @@ for (key in gulpFiles) {
 }
 
 gulp.task('dev', ['build'], function () {
-  gulp.start('browserSync');
+  gulp.start('electron');
   gulp.start('watch');
 });
 
