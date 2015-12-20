@@ -28,6 +28,7 @@
     "asar": "^0.7.2",
     "fs-jetpack": "^0.7.0",
     "electron-prebuilt": "^0.35.1",
+    "gulp-run-electron": "^1.2.2",
     "q": "^1.4.1",
     "browser-sync": "^2.2.3",
     "chai": "^2.1.1",

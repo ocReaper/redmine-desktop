@@ -3,7 +3,7 @@
 var _ = require('underscore.string')
   , fs = require('fs')
   , path = require('path')
-
+  , projectDir = require('fs-jetpack')
   , bowerDir = JSON.parse(fs.readFileSync('.bowerrc')).directory + path.sep;
 
 module.exports = function (gulp, $, config) {
@@ -124,6 +124,8 @@ module.exports = function (gulp, $, config) {
 
   // copy electron starter background.js
   gulp.task('electronStarterCopy', ['inject'], function () {
+    projectDir.copyAsync('package.json', projectDir.path('build/app') + '/package.json', { overwrite: true });
+
     return gulp.src([
         config.appElectronFile
       ])
