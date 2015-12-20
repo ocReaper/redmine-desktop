@@ -6,14 +6,18 @@
     .config(config);
 
   function config(visorProvider) {
+    var loggedUserTokenCookieKey = 'loggedUserRedmineApiKey'
+      , loginState = 'login'
+      , defaultState = 'projects';
+
+    visorProvider.notAuthorizedRoute = loginState;
+    visorProvider.homeRoute = defaultState;
+
     visorProvider.authenticate = function ($q, $cookies, $log, $state) {
       // ngInject is necessary for minification
       'ngInject';
 
-      var loggedUserTokenCookieKey = 'loggedUserRedmineApiKey'
-        , loginState = 'login'
-        , defaultState = 'projects'
-        , loggedUserToken = $cookies.get(loggedUserTokenCookieKey);
+      var loggedUserToken = $cookies.get(loggedUserTokenCookieKey);
 
       if (!loggedUserToken) {
         $log.debug('Application starts with no logged user');

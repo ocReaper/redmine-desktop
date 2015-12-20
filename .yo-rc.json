@@ -9,6 +9,7 @@
     "structure": "module-type",
     "style": "less",
     "testFramework": "mocha",
-    "testScript": "es6"
+    "testScript": "es6",
+    "lastUsedModule": "auth"
   }
 }
