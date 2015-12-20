@@ -9,8 +9,11 @@
   angular
     .module('redmineDesktop', [
       'ngAria',
+      'ngCookies',
       'ngMaterial',
       'ui.router',
-      'home'
+      'visor',
+      'home',
+      'auth'
     ]);
 }());

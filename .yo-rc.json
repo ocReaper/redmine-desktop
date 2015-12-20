@@ -6,7 +6,7 @@
     "e2eTestFramework": "mocha",
     "markup": "html",
     "ngRoute": false,
-    "structure": "module-only",
+    "structure": "module-type",
     "style": "less",
     "testFramework": "mocha",
     "testScript": "es6"
