@@ -1,2 +1,29 @@
-<h2>login</h2>
-<p>{{login.ctrlName}}</p>
+<div class="login">
+  <div class="login__wrap">
+    <div flex layout="row">
+      <div flex="35">
+        <h2>login to redmine</h2>
+
+        <form name="loginForm"
+              ng-submit="login.submit()"
+              novalidate>
+
+          <md-input-container>
+            <label for="user.host">Redmine host</label>
+            <input type="text" id="user.host" name="user.host" ng-model="login.user.host">
+          </md-input-container>
+
+          <md-input-container>
+            <label for="user.key">Redmine API key</label>
+            <input type="text" id="user.key" name="user.key" ng-model="login.user.key">
+          </md-input-container>
+
+          <md-button class="md-raised" type="submit">
+            Login
+          </md-button>
+        </form>
+      </div>
+    </div>
+    <div class="login__half"></div>
+  </div>
+</div>

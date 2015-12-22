@@ -13,6 +13,7 @@
       'ngMaterial',
       'ui.router',
       'visor',
+      'LocalStorageModule',
       'home',
       'auth'
     ]);

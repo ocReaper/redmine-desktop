@@ -2,9 +2,21 @@
   'use strict';
 
   class LoginCtrl {
-    constructor() {
+    /* @ngInject */
+    constructor(localStorageService, visor) {
       let vm = this;
-      vm.ctrlName = 'LoginCtrl';
+
+      vm.localStorageService = localStorageService;
+      vm.visor = visor;
+      vm.user = {};
+    }
+
+    submit() {
+      let vm = this;
+
+      vm.localStorageService.set('loggedUserRedmineApiKey', vm.user.key);
+      vm.localStorageService.set('loggedUserRedmineApiHost', vm.user.host);
+      vm.visor.setAuthenticated(vm.user);
     }
   }
 
