@@ -15,6 +15,8 @@
       'visor',
       'LocalStorageModule',
       'home',
-      'auth'
+      'auth',
+      'rmResource',
+      'lodash'
     ]);
 }());

@@ -13,11 +13,10 @@
     visorProvider.notAuthorizedRoute = loginState;
     visorProvider.homeRoute = defaultState;
 
-    visorProvider.authenticate = function ($q, $cookies, $log, $state, localStorageService) {
-      // ngInject is necessary for minification
-      'ngInject';
-
-      var loggedUserToken = localStorageService.get(loggedUserTokenStorageKey);
+    /* @ngInject */
+    visorProvider.authenticate = function ($q, $cookies, $log, $state, $location, localStorageService) {
+      var loggedUserToken = localStorageService.get(loggedUserTokenStorageKey)
+        , path = $location.path();
 
       if (!loggedUserToken) {
         $log.debug('Application starts with no logged user');
@@ -26,7 +25,10 @@
       }
 
       $log.debug('Application starts with logged user #token %s', loggedUserToken);
-      $state.go(defaultState);
+      if (path === '/' || path === '') {
+        $state.go(defaultState);
+      }
+      return $q.when(null);
     };
   }
 }());
