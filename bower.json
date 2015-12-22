@@ -18,7 +18,9 @@
     "angular-touch": "~1.4.*",
     "angular-ui-router": "~0.2.10",
     "angular-material": "~0.10.0",
-    "lodash": "~3.9.0"
+    "lodash": "~3.9.0",
+    "visor": "~0.1.2",
+    "angular-local-storage": "~0.2.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.*"
