@@ -25,12 +25,47 @@
     }
 
     function get($resource, _) {
-      function rmResourceBase(url, paramDefaults, actions) {
+      function rmResourceBase(name, url, paramDefaults, actions) {
+        var resource,
+          cache = $cacheFactory(name),
+          clearCacheInterceptor = getInterceptors();
+
         paramDefaults = paramDefaults || {};
         actions = actions || {};
-        actions = addBaseUrlToActions(actions);
+        actions = _.defaultsDeep(actions, {
+          query: {method: 'GET', cache: cache, isArray: true},
+          get: {method: 'GET', cache: cache},
+          save: {method: 'POST', interceptor: clearCacheInterceptor},
+          update: {method: 'PUT', interceptor: clearCacheInterceptor},
+          remove: {method: 'DELETE', interceptor: clearCacheInterceptor},
+          delete: {method: 'DELETE', interceptor: clearCacheInterceptor}
+        });
+        resource = getResource();
+        resource = addResourceMethods(resource);
 
-        return $resource(baseUrl + url, paramDefaults, actions);
+        return resource;
+
+        function getResource(params) {
+          params = params || {};
+          params.parentUrl = params.parentUrl || '';
+          actions = addBaseUrlToActions(actions);
+
+          return $resource(baseUrl + params.parentUrl + url, paramDefaults, actions);
+        }
+
+        function addResourceMethods(resourceWithoutMethods) {
+          return angular.extend(resourceWithoutMethods, {
+            getAsSub: function getAsSub(parentUrl) {
+              /**
+               * we need to merge resourceWithoutMethods prototype with the new sub-resourceWithoutMethods
+               * this will add methods, defined in resourceWithoutMethods factory to the sub-resourceWithoutMethods
+               */
+              var newResource = getResource({parentUrl: parentUrl});
+              _.defaults(newResource.prototype, resourceWithoutMethods.prototype);
+              return newResource;
+            }
+          });
+        }
 
         function addBaseUrlToActions(rawActions) {
           _.forEach(rawActions, function (action) {
@@ -39,6 +74,24 @@
             }
           });
           return rawActions;
+        }
+
+        function getInterceptors() {
+          return {
+            response: function (response) {
+              clearCache(response.config.url);
+              return response;
+            },
+            responseError: function (response) {
+              clearCache(response.config.url);
+              return response;
+            }
+          };
+        }
+
+        function clearCache(cacheUrl) {
+          cache.remove(cacheUrl);
+          $log.debug('Cache removed for ', cacheUrl);
         }
       }
 
