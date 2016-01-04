@@ -1,47 +1,71 @@
 <!DOCTYPE html>
 <html lang='en' data-ng-app='redmineDesktop'>
-  <head>
-    <title>redmineDesktop</title>
-    <meta name='viewport' content='width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes'>
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="images/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="images/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="Redmine Desktop"/>
-    <meta name="msapplication-TileColor" content="#C4473A" />
-    <meta name="msapplication-TileImage" content="images/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="images/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="images/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="images/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="images/mstile-310x310.png" />
+<head>
+  <title>redmineDesktop</title>
+  <meta name='viewport' content='width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes'>
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/apple-touch-icon-60x60.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon-120x120.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/apple-touch-icon-76x76.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-152x152.png"/>
+  <link rel="icon" type="image/png" href="images/favicon-196x196.png" sizes="196x196"/>
+  <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96"/>
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32"/>
+  <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16"/>
+  <link rel="icon" type="image/png" href="images/favicon-128.png" sizes="128x128"/>
+  <meta name="application-name" content="Redmine Desktop"/>
+  <meta name="msapplication-TileColor" content="#C4473A"/>
+  <meta name="msapplication-TileImage" content="images/mstile-144x144.png"/>
+  <meta name="msapplication-square70x70logo" content="images/mstile-70x70.png"/>
+  <meta name="msapplication-square150x150logo" content="images/mstile-150x150.png"/>
+  <meta name="msapplication-wide310x150logo" content="images/mstile-310x150.png"/>
+  <meta name="msapplication-square310x310logo" content="images/mstile-310x310.png"/>
 
-    <!-- inject:head:js -->
-    <!-- endinject -->
-    <!-- inject:html -->
-    <!-- endinject -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
+  <!-- inject:head:js -->
+  <!-- endinject -->
+  <!-- inject:html -->
+  <!-- endinject -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body>
 
-    <div data-ui-view>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h3>
+      Name
+    </h3>
+    <span flex></span>
+    <md-button>
+      <md-icon class="zmdi zmdi-account-circle zmdi-hc-lg zmdi-hc-fw"></md-icon>
+      Name
+    </md-button>
+    <md-button>
+      <md-icon class="zmdi zmdi-power zmdi-hc-lg zmdi-hc-fw"></md-icon>
+      Logout
+    </md-button>
+  </div>
+  <md-tabs md-stretch-tabs class="md-primary" md-selected="">
+    <md-tab id="tab1" aria-controls="tab1-content">
+      Sample
+    </md-tab>
+  </md-tabs>
+</md-toolbar>
 
-    </div>
+<wb-main-menu ng-if="app.hasNavigation"></wb-main-menu>
+<main layout="row" layout-align="center start">
+  <wb-side-menu show-gt-lg flex-gt-lg="20" layout="column" ng-if="app.hasNavigation"></wb-side-menu>
+  <div data-ui-view role="main" flex="100"></div>
+</main>
 
-    <!-- bower:js -->
-    <!-- endbower -->
-    <!-- inject:js -->
-    <!-- endinject -->
-  </body>
+<!-- bower:js -->
+<!-- endbower -->
+<!-- inject:js -->
+<!-- endinject -->
+</body>
 </html>
