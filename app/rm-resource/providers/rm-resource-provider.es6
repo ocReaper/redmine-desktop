@@ -26,9 +26,9 @@
 
     function get($resource, _) {
       function rmResourceBase(name, url, paramDefaults, actions) {
-        var resource,
-          cache = $cacheFactory(name),
-          clearCacheInterceptor = getInterceptors();
+        let resource
+          , cache = $cacheFactory(name)
+          , clearCacheInterceptor = getClearCacheInterceptors();
 
         paramDefaults = paramDefaults || {};
         actions = actions || {};
@@ -60,7 +60,7 @@
                * we need to merge resourceWithoutMethods prototype with the new sub-resourceWithoutMethods
                * this will add methods, defined in resourceWithoutMethods factory to the sub-resourceWithoutMethods
                */
-              var newResource = getResource({parentUrl: parentUrl});
+              let newResource = getResource({parentUrl: parentUrl});
               _.defaults(newResource.prototype, resourceWithoutMethods.prototype);
               return newResource;
             }
@@ -76,7 +76,7 @@
           return rawActions;
         }
 
-        function getInterceptors() {
+        function getClearCacheInterceptors() {
           return {
             response: function (response) {
               clearCache(response.config.url);
