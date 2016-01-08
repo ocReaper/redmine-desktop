@@ -35,31 +35,9 @@
 </head>
 <body>
 
-<md-toolbar>
-  <div class="md-toolbar-tools">
-    <h3>
-      Name
-    </h3>
-    <span flex></span>
-    <md-button>
-      <md-icon class="zmdi zmdi-account-circle zmdi-hc-lg zmdi-hc-fw"></md-icon>
-      Name
-    </md-button>
-    <md-button>
-      <md-icon class="zmdi zmdi-power zmdi-hc-lg zmdi-hc-fw"></md-icon>
-      Logout
-    </md-button>
-  </div>
-  <md-tabs md-stretch-tabs class="md-primary" md-selected="">
-    <md-tab id="tab1" aria-controls="tab1-content">
-      Sample
-    </md-tab>
-  </md-tabs>
-</md-toolbar>
-
-<wb-main-menu ng-if="app.hasNavigation"></wb-main-menu>
+<main-menu></main-menu>
 <main layout="row" layout-align="center start">
-  <wb-side-menu show-gt-lg flex-gt-lg="20" layout="column" ng-if="app.hasNavigation"></wb-side-menu>
+  <!--<wb-side-menu show-gt-lg flex-gt-lg="20" layout="column" ng-if="app.hasNavigation"></wb-side-menu>-->
   <div data-ui-view role="main" flex="100"></div>
 </main>
 

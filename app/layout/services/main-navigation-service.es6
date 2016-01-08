@@ -2,17 +2,22 @@
   'use strict';
 
   class MainNavigation {
-    const items = [];
-
     constructor() {
+      this.items = [];
     }
 
     get() {
-      return 'MainNavigation';
+      return {
+        getItems: this.getItems
+      };
     }
 
     getItems() {
-      return items;
+      return this.items;
+    }
+
+    addItem(item) {
+      this.items.push(item);
     }
   }
 

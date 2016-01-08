@@ -1,0 +1,21 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h3>
+      Name
+    </h3>
+    <span flex></span>
+    <md-button>
+      <md-icon class="zmdi zmdi-account-circle zmdi-hc-lg zmdi-hc-fw"></md-icon>
+      Name
+    </md-button>
+    <md-button>
+      <md-icon class="zmdi zmdi-power zmdi-hc-lg zmdi-hc-fw"></md-icon>
+      Logout
+    </md-button>
+  </div>
+  <md-tabs md-stretch-tabs class="md-primary" md-selected="">
+    <md-tab ng-repeat="item in mainMenu.getMenuItems()" id="tab1" aria-controls="tab1-content">
+      {{item.title}}
+    </md-tab>
+  </md-tabs>
+</md-toolbar>
