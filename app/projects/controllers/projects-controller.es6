@@ -2,9 +2,24 @@
   'use strict';
 
   class ProjectsCtrl {
-    constructor() {
+    constructor(Project) {
       let vm = this;
-      vm.ctrlName = 'ProjectsCtrl';
+
+      vm.Project = Project;
+      vm.projects = [];
+
+      vm.Project
+        .get()
+        .$promise
+        .then(function (response) {
+          vm.projects = response.projects;
+        });
+    }
+
+    getProjects() {
+      let vm = this;
+
+      return vm.projects;
     }
   }
 
