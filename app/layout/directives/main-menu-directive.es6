@@ -53,6 +53,10 @@
         vm.getMenuItems = function getMenuItems() {
           return MainNavigation.getItems();
         };
+
+        vm.hasItems = function hasItems() {
+          return MainNavigation.getItems().length > 0;
+        };
       }
     };
   }

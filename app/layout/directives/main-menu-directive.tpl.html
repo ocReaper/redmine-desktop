@@ -8,7 +8,7 @@
       Logout
     </md-button>
   </div>
-  <md-tabs md-stretch-tabs class="md-primary" md-selected="">
+  <md-tabs ng-if="mainMenu.hasItems()" md-stretch-tabs class="md-primary" md-selected="">
     <md-tab ng-repeat="item in mainMenu.getMenuItems()" id="tab1" aria-controls="tab1-content">
       {{item.title}}
     </md-tab>
