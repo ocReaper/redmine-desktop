@@ -18,6 +18,7 @@
       'auth',
       'rmResource',
       'lodash',
-      'layout'
+      'layout',
+      'loggedUser'
     ]);
 }());

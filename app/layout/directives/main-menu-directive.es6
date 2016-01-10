@@ -28,16 +28,22 @@
       templateUrl: 'layout/directives/main-menu-directive.tpl.html',
       replace: false,
       controllerAs: 'mainMenu',
-      controller(MainNavigation) {
+      controller(MainNavigation, LoggedUser, _) {
         let vm = this;
+
+        vm.getCurrentUserName = function getCurrentUserName() {
+          let user = LoggedUser.getUser();
+
+          if (_.isNull(user)) {
+            return '';
+          }
+
+          return user.firstname + ' ' + user.lastname;
+        };
 
         vm.getMenuItems = function getMenuItems() {
           return MainNavigation.getItems();
         };
-      },
-      link(scope, element, attrs) {
-        /* jshint unused:false */
-        /* eslint "no-unused-vars": [2, {"args": "none"}] */
       }
     };
   }

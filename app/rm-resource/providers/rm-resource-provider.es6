@@ -24,7 +24,7 @@
       baseUrl = newBaseUrl;
     }
 
-    function get($resource, _) {
+    function get($resource, _, $cacheFactory, $log) {
       function rmResourceBase(name, url, paramDefaults, actions) {
         var resource,
           cache = $cacheFactory(name),
