@@ -17,6 +17,8 @@
       'home',
       'auth',
       'rmResource',
-      'lodash'
+      'lodash',
+      'layout',
+      'loggedUser'
     ]);
 }());

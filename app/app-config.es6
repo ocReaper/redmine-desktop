@@ -3,9 +3,14 @@
 
   angular
     .module('redmineDesktop')
-    .config(config);
+    .config(configLocalStorage)
+    .config(configApi);
 
-  function config(localStorageServiceProvider) {
+  function configLocalStorage(localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('redmineDesktop');
+  }
+
+  function configApi(RmResourceProvider) {
+    RmResourceProvider.setBaseUrl('https://redmine.y-collective.com/');
   }
 }());

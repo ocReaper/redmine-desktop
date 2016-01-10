@@ -14,7 +14,7 @@
     visorProvider.homeRoute = defaultState;
 
     /* @ngInject */
-    visorProvider.authenticate = function ($q, $cookies, $log, $state, $location, localStorageService) {
+    visorProvider.authenticate = function ($q, $cookies, $log, $state, $location, $http, localStorageService, LoggedUser) {
       var loggedUserToken = localStorageService.get(loggedUserTokenStorageKey)
         , path = $location.path();
 
@@ -25,10 +25,19 @@
       }
 
       $log.debug('Application starts with logged user #token %s', loggedUserToken);
-      if (path === '/' || path === '') {
-        $state.go(defaultState);
-      }
-      return $q.when(null);
+
+      $http.defaults.useXDomain = true;
+      $http.defaults.headers.common['X-Redmine-API-Key'] = loggedUserToken;
+
+      return LoggedUser
+        .setUserByToken()
+        .then(function () {
+          if (path === '/' || path === '') {
+            $state.go(defaultState);
+          }
+
+          return LoggedUser.getUser();
+        });
     };
   }
 }());

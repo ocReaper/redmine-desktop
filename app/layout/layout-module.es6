@@ -2,12 +2,11 @@
   'use strict';
 
   /* @ngdoc object
-   * @name rmResource
+   * @name layout
    * @description
    *
    */
   angular
-    .module('rmResource', [
-      'ngResource'
+    .module('layout', [
     ]);
 }());
