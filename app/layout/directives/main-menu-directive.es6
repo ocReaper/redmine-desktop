@@ -28,7 +28,7 @@
       templateUrl: 'layout/directives/main-menu-directive.tpl.html',
       replace: false,
       controllerAs: 'mainMenu',
-      controller(MainNavigation, LoggedUser, _) {
+      controller(MainNavigation, LoggedUser, _, visor, localStorageService, $rootScope, $state) {
         let vm = this;
 
         vm.getCurrentUserName = function getCurrentUserName() {
@@ -39,6 +39,15 @@
           }
 
           return user.firstname + ' ' + user.lastname;
+        };
+
+        vm.logOut = function logOut() {
+          localStorageService.remove('loggedUserRedmineApiKey');
+          localStorageService.remove('loggedUserRedmineApiHost');
+          LoggedUser.removeUser();
+          $rootScope.user = undefined;
+          visor.setUnauthenticated();
+          $state.go('login');
         };
 
         vm.getMenuItems = function getMenuItems() {

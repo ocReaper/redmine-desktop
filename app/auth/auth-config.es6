@@ -28,15 +28,16 @@
 
       $http.defaults.useXDomain = true;
       $http.defaults.headers.common['X-Redmine-API-Key'] = loggedUserToken;
-      LoggedUser
+
+      return LoggedUser
         .setUserByToken()
         .then(function () {
           if (path === '/' || path === '') {
             $state.go(defaultState);
           }
-        });
 
-      return $q.when(null);
+          return LoggedUser.getUser();
+        });
     };
   }
 }());

@@ -24,6 +24,10 @@
       return deferredUser.promise;
     }
 
+    removeUser() {
+      this.user = null;
+    }
+
     getUser() {
       return this.user;
     }
@@ -31,6 +35,7 @@
     get() {
       return {
         setUserByToken: this.setUserByToken,
+        removeUser: this.removeUser,
         getUser: this.getUser
       }
     }
