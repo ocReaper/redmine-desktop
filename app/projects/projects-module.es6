@@ -2,20 +2,20 @@
   'use strict';
 
   /* @ngdoc object
-   * @name home
+   * @name projects
    * @description
    *
    */
   angular
-    .module('home', [
+    .module('projects', [
       'ui.router'
     ])
     .run(addToMainNavigation);
 
   function addToMainNavigation(MainNavigation) {
     MainNavigation.addItem({
-      title: 'Home',
-      state: 'home'
+      title: 'Projects',
+      state: 'projects'
     });
   }
 }());

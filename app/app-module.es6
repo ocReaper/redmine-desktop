@@ -19,6 +19,7 @@
       'rmResource',
       'lodash',
       'layout',
-      'loggedUser'
+      'loggedUser',
+      'projects'
     ]);
 }());
