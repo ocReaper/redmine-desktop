@@ -37,7 +37,7 @@
         setUserByToken: this.setUserByToken,
         removeUser: this.removeUser,
         getUser: this.getUser
-      }
+      };
     }
   }
 
