@@ -9,10 +9,14 @@
       vm.projects = [];
 
       vm.Project
-        .get()
+        .get({limit: 999})
         .$promise
         .then(function (response) {
-          vm.projects = response.projects;
+          let projects = response.projects;
+
+          vm.projects = _.filter(projects, function (n) {
+            return _.isUndefined(n.status) || n.status === 1;
+          });
         });
     }
 
