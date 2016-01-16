@@ -1,0 +1,10 @@
+<div ng-cloak>
+  <md-list>
+    <md-list-item class="md-3-line colored-item colored-item--state-{{:: issue.status.id }}" ng-repeat-start="issue in issues.getIssues()">
+      <div class="md-list-item-text" layout="column">
+        <h3>#{{:: issue.id}} {{:: issue.subject }}</h3>
+      </div>
+    </md-list-item>
+    <md-divider ng-if="!$last" ng-repeat-end></md-divider>
+  </md-list>
+</div>

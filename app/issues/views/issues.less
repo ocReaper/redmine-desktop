@@ -1,0 +1,17 @@
+.colored-item {
+  position: relative;
+  padding: 0 0 0 20px;
+
+  &:before {
+    content: '';
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &-\-state-1:before {
+    background: red;
+  }
+}

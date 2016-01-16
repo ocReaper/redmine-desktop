@@ -20,6 +20,7 @@
       'lodash',
       'layout',
       'loggedUser',
-      'projects'
+      'projects',
+      'issues'
     ]);
 }());
