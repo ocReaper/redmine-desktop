@@ -1,7 +1,18 @@
-<div ng-cloak>
+<div class="issues" ng-cloak>
   <md-list>
-    <md-list-item class="md-3-line colored-item colored-item--state-{{:: issue.status.id }}" ng-repeat-start="issue in issues.getIssues()">
-      <div class="md-list-item-text" layout="column">
+    <md-list-item class="md-3-line colored-item"
+                  ng-repeat-start="issue in issues.getIssues()"
+                  layout="row">
+      <div class="colored-item--priority-{{:: issue.priority.id }}"
+           flex="10"
+           layout-fill>
+        <md-icon md-font-icon="zmdi zmdi-lock-open"></md-icon>
+      </div>
+      <div class="md-list-item-text"
+           style="padding: 0;"
+           flex="90"
+           layout-fill
+           layout="column">
         <h3>#{{:: issue.id}} {{:: issue.subject }}</h3>
       </div>
     </md-list-item>

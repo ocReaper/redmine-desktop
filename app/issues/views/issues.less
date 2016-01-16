@@ -1,17 +1,39 @@
-.colored-item {
-  position: relative;
-  padding: 0 0 0 20px;
+.issues {
 
-  &:before {
-    content: '';
-    width: 20px;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
+  md-list,
+  md-list-item {
+    padding: 0;
+  }
+}
+
+.colored-item {
+
+  md-icon {
+    color: #fff;
   }
 
-  &-\-state-1:before {
+  //immediate
+  &-\-priority-7 {
+    background: darkred;
+  }
+
+  //urgent
+  &-\-priority-6 {
     background: red;
+  }
+
+  //high
+  &-\-priority-5 {
+    background: yellow;
+  }
+
+  //normal
+  &-\-priority-4 {
+    background: cornflowerblue;
+  }
+
+  //low
+  &-\-priority-3 {
+    background: green;
   }
 }
