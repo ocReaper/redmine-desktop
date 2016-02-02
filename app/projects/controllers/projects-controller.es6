@@ -2,28 +2,25 @@
   'use strict';
 
   class ProjectsCtrl {
-    constructor(Project) {
+    constructor($state, projects, IssueFilter) {
       let vm = this;
 
-      vm.Project = Project;
-      vm.projects = [];
-
-      vm.Project
-        .get({limit: 999})
-        .$promise
-        .then(function (response) {
-          let projects = response.projects;
-
-          vm.projects = _.filter(projects, function (n) {
-            return _.isUndefined(n.status) || n.status === 1;
-          });
-        });
+      vm.projects = projects;
+      vm.$state = $state;
+      vm.IssueFilter = IssueFilter;
     }
 
     getProjects() {
       let vm = this;
 
       return vm.projects;
+    }
+
+    filterIssuesByProjectId(id) {
+      let vm = this;
+
+      vm.IssueFilter.addFilter({project_id: id});
+      vm.$state.go('issues');
     }
   }
 

@@ -1,0 +1,22 @@
+<div class="issues" ng-cloak>
+  <md-list>
+    <md-list-item class="md-3-line colored-item colored-item--priority-{{:: issue.priority.id }}"
+                  ng-repeat-start="issue in issues.getIssues()"
+                  layout-fill
+                  layout="row">
+      <div class="indicator"
+           style="width: 40px;padding: 16px 0;text-align: center;"
+           layout-fill>
+        <md-icon class="zmdi zmdi-{{::issue.status.id | issueStatusIcon}}"></md-icon>
+      </div>
+      <div class="md-list-item-text"
+           style="padding-left: 15px;"
+           flex="90"
+           layout-fill
+           layout="column">
+        <h3>#{{:: issue.id}} {{:: issue.subject }}</h3>
+      </div>
+    </md-list-item>
+    <md-divider ng-if="!$last" ng-repeat-end></md-divider>
+  </md-list>
+</div>
