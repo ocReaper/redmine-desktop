@@ -12,7 +12,7 @@
     }
 
     addFilter(filter) {
-      this.activeFilters.push(filter);
+      this.activeFilters = _.union(this.activeFilters, [filter]);
     }
 
     removeFilter(filter) {
