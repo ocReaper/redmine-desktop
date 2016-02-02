@@ -1,0 +1,11 @@
+<div ng-cloak>
+  <md-list>
+    <md-list-item class="md-3-line" ng-repeat-start="project in projects.getProjects()" ng-click="projects.filterIssuesByProjectId(project.id)">
+      <div class="md-list-item-text" layout="column">
+        <h3>{{:: project.name }}</h3>
+        <h4>{{:: project.description }}</h4>
+      </div>
+    </md-list-item>
+    <md-divider ng-if="!$last" ng-repeat-end></md-divider>
+  </md-list>
+</div>

@@ -1,0 +1,16 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h3>
+      {{mainMenu.getCurrentUserName()}}
+    </h3>
+    <span flex></span>
+    <md-button type="button" ng-click="mainMenu.logOut()">
+      Logout
+    </md-button>
+  </div>
+  <md-tabs ng-if="mainMenu.hasItems()" md-stretch-tabs class="md-primary" md-selected="">
+    <md-tab ng-repeat="item in mainMenu.getMenuItems()" id="tab{{$index}}" aria-controls="tab{{$index}}-content" ui-sref="{{::item.state}}">
+      {{::item.title}}
+    </md-tab>
+  </md-tabs>
+</md-toolbar>

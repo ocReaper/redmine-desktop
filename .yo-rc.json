@@ -1,0 +1,15 @@
+{
+  "generator-ng-poly": {
+    "appScript": "es6",
+    "controllerAs": true,
+    "directiveTemplateUrl": true,
+    "e2eTestFramework": "mocha",
+    "markup": "html",
+    "ngRoute": false,
+    "structure": "module-type",
+    "style": "less",
+    "testFramework": "mocha",
+    "testScript": "es6",
+    "lastUsedModule": "auth"
+  }
+}

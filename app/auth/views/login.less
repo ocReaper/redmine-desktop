@@ -1,0 +1,51 @@
+@lightColor: #efeff4;
+@darkColor: #282828;
+@whD: 100%;
+@opticalCorrection: 2; //Optical correction of black and white
+
+.login__wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.login h2 {
+  font-weight: 900;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.login__wrap {
+  padding: 50px;
+  background-color: @lightColor;
+  position: fixed;
+}
+
+.login__half {
+  background-color: @darkColor;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: @whD;
+  height: 3000px;
+  transform: skewX(-30deg);
+  transform-origin: 50% 50%;
+  left: 55% - @opticalCorrection;
+  position: relative;
+  margin-left: @whD / (-2);
+  top: 50%;
+  margin-top: @whD / (-2);
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    background: url('../../../images/141226-work-stock.jpg') no-repeat;
+    background-size: contain;
+    height: 3000px;
+    width: 100%;
+    transform: skewX(30deg);
+    opacity: 0.3;
+  }
+}

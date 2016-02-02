@@ -1,0 +1,29 @@
+{
+  "name": "redmineDesktop",
+  "version": "0.1.0",
+  "description": "Native desktop Redmine client written in Angular.js with Electron",
+  "authors": [
+    "Ákos Resch <ocreaper@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.*",
+    "angular-animate": "~1.4.*",
+    "angular-aria": "~1.4.*",
+    "angular-cookies": "~1.4.*",
+    "angular-messages": "~1.4.*",
+    "angular-resource": "~1.4.*",
+    "angular-sanitize": "~1.4.*",
+    "angular-touch": "~1.4.*",
+    "angular-ui-router": "~0.2.10",
+    "angular-material": "~0.10.0",
+    "lodash": "3.10.1",
+    "visor": "~0.1.2",
+    "angular-local-storage": "~0.2.3",
+    "material-design-iconic-font": "~2.2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.*"
+  }
+}
