@@ -1,6 +1,7 @@
 <div class="issues" ng-cloak>
   <md-list>
     <md-list-item class="md-3-line colored-item colored-item--priority-{{:: issue.priority.id }}"
+                  ng-click="issues.openIssue(issue.id)"
                   ng-repeat-start="issue in issues.getIssues()"
                   layout-fill
                   layout="row">
@@ -14,7 +15,7 @@
            flex="90"
            layout-fill
            layout="column">
-        <h3 ui-sref="issue({id: issue.id})">#{{:: issue.id}} {{:: issue.subject }}</h3>
+        <h3>#{{:: issue.id}} {{:: issue.subject }}</h3>
       </div>
     </md-list-item>
     <md-divider ng-if="!$last" ng-repeat-end></md-divider>
