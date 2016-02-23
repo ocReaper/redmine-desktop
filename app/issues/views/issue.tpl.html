@@ -1,0 +1,63 @@
+<md-content flex layout-padding>
+  <div layout="row">
+    <div flex>
+  <md-icon style="color: red;" class="zmdi zmdi-{{::issue.issue.status.id | issueStatusIcon}}"></md-icon> {{::issue.issue.tracker.name}} #{{::issue.issue.id}}
+  <h2>{{::issue.issue.subject}}</h2>
+  Author {{::issue.issue.author.name}}<br>
+  <strong>Description</strong>
+  <p ng-bind-html="::issue.issue.description"></p>
+  <br>
+  <strong>Details</strong>
+  <table>
+    <tr>
+      <td>Project</td>
+      <td>{{::issue.issue.project.name}}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{::issue.issue.status.name}}</td>
+    </tr>
+    <tr>
+      <td>Priority</td>
+      <td>{{::issue.issue.priority.name}}</td>
+    </tr>
+    <tr>
+      <td>Assignee</td>
+      <td>{{::issue.issue.assigned_to.name}}</td>
+    </tr>
+    <tr>
+      <td>Updated</td>
+      <td>{{::issue.issue.updated_on}}</td>
+    </tr>
+    <tr>
+      <td>Estimated time</td>
+      <td>{{::issue.issue.estimated_hours}}</td>
+    </tr>
+    <tr>
+      <td>Spent time</td>
+      <td>{{::issue.issue.spent_hours}}</td>
+    </tr>
+    <tr>
+      <td>Done</td>
+      <td>{{::issue.issue.done_ratio}}%</td>
+    </tr>
+  </table>
+
+  </div>
+
+  <div flex>
+    <md-list>
+      <md-subheader class="md-no-sticky">{{::issue.issue.journals.length}} updates</md-subheader>
+      <md-divider ng-repeat-start="journal in issue.issue.journals"></md-divider>
+      <md-list-item class="md-3-line" ng-repeat-end>
+        <div class="md-list-item-text" layout="column">
+          <h3>{{:: journal.user.name }}</h3>
+          <h4>Added at: {{:: journal.created_on }}</h4>
+          <p>{{:: journal.notes }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+
+  </div>
+</md-content>

@@ -1,6 +1,7 @@
 <div class="issues" ng-cloak>
   <md-list>
     <md-list-item class="md-3-line colored-item colored-item--priority-{{:: issue.priority.id }}"
+                  ng-click="issues.openIssue(issue.id)"
                   ng-repeat-start="issue in issues.getIssues()"
                   layout-fill
                   layout="row">

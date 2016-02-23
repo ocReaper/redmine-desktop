@@ -22,6 +22,10 @@ Native desktop Redmine client written in Angular.js with Electron
 - Run `gulp e2eTest` to run e2e tests via Protractor
 - **A localhost must be running** - `gulp dev`
 
+### Used priority colors
+
+See this [colourlovers](http://www.colourlovers.com/palette/2077991/priority_authority) palette.
+
 ## License
 The MIT License (MIT)
 

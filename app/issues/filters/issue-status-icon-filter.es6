@@ -19,25 +19,25 @@
     return (status) => {
       switch (status) {
         case 1:
-          return 'fire';
+          return 'fire';// new
           break;
         case 2:
-          return 'hourglass-alt';
+          return 'hourglass-alt';// in progress
           break;
         case 3:
-          return 'flag';
+          return 'flag';// feedback
           break;
         case 4:
-          return 'thumb-up';
+          return 'thumb-up';// resolved
           break;
         case 5:
-          return 'spinner';
+          return 'spinner';// waiting for deploy
           break;
         case 6:
-          return 'check';
+          return 'check';// closed
           break;
         case 7:
-          return 'thumb-down';
+          return 'thumb-down';// rejected
           break;
       }
     };

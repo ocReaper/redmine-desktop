@@ -1,7 +1,17 @@
+// variables
+@color-redmine-blue: #507AAA;
+@color-white: #fff;
+@color-immediate: #E84245;
+@color-urgent: #AD636D;
+@color-high: #8097F1;
+@color-normal: #66C4BE;
+@color-low: #7AD8AA;
+
 .issues {
 
   md-list,
-  md-list-item {
+  md-list-item,
+  md-list-item > button {
     padding: 0;
   }
 }
@@ -14,46 +24,46 @@
 
   //immediate
   &-\-priority-7 {
-    background: darkred;
+    background: @color-immediate;
 
     .indicator {
-      background: darken(#8B0000, 20%);
+      background: darken(@color-immediate, 20%);
     }
   }
 
   //urgent
   &-\-priority-6 {
-    background: red;
+    background: @color-urgent;
 
     .indicator {
-      background: darken(#FF0000, 20%);
+      background: darken(@color-urgent, 20%);
     }
   }
 
   //high
   &-\-priority-5 {
-    background: yellow;
+    background: @color-high;
 
     .indicator {
-      background: darken(#FFFF00, 20%);
+      background: darken(@color-high, 20%);
     }
   }
 
   //normal
   &-\-priority-4 {
-    background: cornflowerblue;
+    background: @color-normal;
 
     .indicator {
-      background: darken(#6495ED, 20%);
+      background: darken(@color-normal, 20%);
     }
   }
 
   //low
   &-\-priority-3 {
-    background: green;
+    background: @color-low;
 
     .indicator {
-      background: darken(#008000, 20%);
+      background: darken(@color-low, 20%);
     }
   }
 }
