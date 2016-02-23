@@ -8,7 +8,7 @@
   function config(visorProvider) {
     var loggedUserTokenStorageKey = 'loggedUserRedmineApiKey'
       , loginState = 'login'
-      , defaultState = 'home';
+      , defaultState = 'projects';
 
     visorProvider.notAuthorizedRoute = loginState;
     visorProvider.homeRoute = defaultState;

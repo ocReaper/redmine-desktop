@@ -14,7 +14,6 @@
       'ui.router',
       'visor',
       'LocalStorageModule',
-      'home',
       'auth',
       'rmResource',
       'lodash',
