@@ -48,14 +48,14 @@
   <div flex>
     <md-list>
       <md-subheader class="md-no-sticky">{{::issue.issue.journals.length}} updates</md-subheader>
-      <md-list-item class="md-3-line" ng-repeat-start="journal in issue.issue.journals">
+      <md-divider ng-repeat-start="journal in issue.issue.journals"></md-divider>
+      <md-list-item class="md-3-line" ng-repeat-end>
         <div class="md-list-item-text" layout="column">
           <h3>{{:: journal.user.name }}</h3>
           <h4>Added at: {{:: journal.created_on }}</h4>
           <p>{{:: journal.notes }}</p>
         </div>
       </md-list-item>
-      <md-divider ng-repeat-end></md-divider>
     </md-list>
   </div>
 
