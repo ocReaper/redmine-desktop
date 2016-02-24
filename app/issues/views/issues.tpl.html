@@ -21,3 +21,8 @@
     <md-divider ng-if="!$last" ng-repeat-end></md-divider>
   </md-list>
 </div>
+<div ng-if="!issues.getIssues().length">
+  <md-content layout-padding>
+    <ng-include src="'layout/views/noResult.tpl.html'"></ng-include>
+  </md-content>
+</div>
