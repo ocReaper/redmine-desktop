@@ -11,12 +11,21 @@ var mainWindow;
 
 app.on('ready', function () {
   mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 640,
+    width: 640,
+    height: 768,
+    maxWidth: 640,
+    maxHeight: 768,
+    icon: __dirname + '/images/favicon.ico',
+    title: 'Redmine Desktop',
 
-    center: true,
     frame: true,
-    resizable: true
+    kiosk: false,
+    center: false,
+    resizable: false,
+    maximizable: false,
+    fullscreen: false,
+    fullscreenable: false,
+    autoHideMenuBar: true
   });
 
   mainWindow.loadURL('file://' + __dirname + '/index.html');
