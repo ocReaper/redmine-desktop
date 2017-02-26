@@ -32,9 +32,7 @@
       return LoggedUser
         .setUserByToken()
         .then(function () {
-          if (path === '/' || path === '') {
-            $state.go(defaultState);
-          }
+          $state.go(defaultState);
 
           return LoggedUser.getUser();
         });
