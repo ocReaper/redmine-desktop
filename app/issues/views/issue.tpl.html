@@ -5,7 +5,15 @@
         <md-icon style="color: red;" class="zmdi zmdi-{{::issue.issue.status.id | issueStatusIcon}}"></md-icon>
         {{::issue.issue.tracker.name}} #{{::issue.issue.id}}
       </div>
-      <h2>{{::issue.issue.subject}}</h2>
+      <h2>
+        {{::issue.issue.subject}}
+        <md-button style="float: right;"
+                   class="md-raised md-primary"
+                   type="button"
+                   ui-sref="issueManager({id: {{issue.issue.id}} })">
+          Edit
+        </md-button>
+      </h2>
       Author {{::issue.issue.author.name}}<br>
       <strong>Description</strong>
       <p ng-bind-html="::issue.issue.description"></p>
