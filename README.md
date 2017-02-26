@@ -3,6 +3,19 @@
 # redmine-desktop
 Native desktop Redmine client written in Angular.js with Electron
 
+## Prerequisites
+
+* Redmine 3.x
+* Windows OS (for now)
+
+## Usage
+
+1. Install the latest `*.exe` file from the releases folder
+1. Open the app
+1. Fill in the `Redmine host` and the `Redmine API key` fields
+1. Press `login`
+1. PROFIT!!!
+
 ## Development
 
 ### Setup
@@ -13,14 +26,7 @@ Native desktop Redmine client written in Angular.js with Electron
 1. Run `npm install` to install this project's dependencies
 1. Run `bower install` to install client-side dependencies
 1. Use [generator-ng-poly](https://github.com/dustinspecker/generator-ng-poly) to create additional components
-
-### Gulp tasks
-- Run `gulp build` to compile assets
-- Run `gulp dev` to run the build task and setup the development environment
-- Run `gulp unitTest` to run unit tests via Karma and to create code coverage reports
-- Run `gulp webdriverUpdate` to download Selenium server standalone and Chrome driver for e2e testing
-- Run `gulp e2eTest` to run e2e tests via Protractor
-- **A localhost must be running** - `gulp dev`
+1. Run `gulp` to start the project
 
 ### Used priority colors
 
