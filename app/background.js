@@ -11,10 +11,10 @@ var mainWindow;
 
 app.on('ready', function () {
   mainWindow = new BrowserWindow({
-    width: 640,
-    height: 768,
-    maxWidth: 640,
-    maxHeight: 768,
+    width: 480,
+    height: 720,
+    maxWidth: 480,
+    maxHeight: 720,
     icon: __dirname + '/images/favicon.ico',
     title: 'Redmine Desktop',
 
