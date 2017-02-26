@@ -3,6 +3,11 @@
 # redmine-desktop
 Native desktop Redmine client written in Angular.js with Electron
 
+## Prerequisites
+
+* Redmine 3.x
+* Windows OS (for now)
+
 ## Usage
 
 1. Install the latest `*.exe` file from the releases folder
