@@ -2,9 +2,10 @@
   'use strict';
 
   class IssueManagerCtrl {
-    constructor(issueStatuses) {
+    constructor(issue, issueStatuses) {
       let vm = this;
 
+      vm.issue = issue;
       vm.issueStatuses = issueStatuses;
     }
   }
